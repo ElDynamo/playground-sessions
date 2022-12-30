@@ -1,17 +1,19 @@
 import type { App } from "vue";
+import PrimeVue from "primevue/config";
 
 import Button from "primevue/button";
-import PrimeVue from "primevue/config";
 import Calendar from "primevue/calendar";
-// import InputText from "primevue/inputtext";
-// import Toolbar from "primevue/toolbar";
+import Dialog from "primevue/dialog";
+import InputText from "primevue/inputtext";
 import Tooltip from "primevue/tooltip";
 
 export default (app: App) => {
-	app.use(PrimeVue, { ripple: false, inputStyle: "filled" });
-	app.directive("tooltip", Tooltip);
-	// app.component("Button", Button);
-	app.component("Calendar", Calendar);
-	// app.component("InputText", InputText);
-	//   app.component("Toolbar", Toolbar);
+  app.use(PrimeVue, { ripple: false, inputStyle: "filled" });
+
+  app.directive("tooltip", Tooltip);
+
+  app.component("Button", Button);
+  app.component("Calendar", Calendar);
+  app.component("Dialog", Dialog);
+  app.component("InputText", InputText);
 };

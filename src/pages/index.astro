@@ -1,12 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NewSessionDialog from "../components/NewSessionDialog.vue";
-// import Test from "../components/Test.vue";
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="mx-auto text-black text-center">
-		<NewSessionDialog client:only />
-		<!-- <Test /> -->
-	</main>
+  <main class="mx-auto text-black text-center">
+    <NewSessionDialog client:only />
+  </main>
 </Layout>
