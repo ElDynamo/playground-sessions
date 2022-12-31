@@ -3,112 +3,101 @@
     :visible="isDialogVisible"
     :style="{ width: '50vw' }"
     :modal="true"
-    contentClass="bg-gradient-to-bl rounded-xl flex flex-col mx-auto from-slate-700 via-gray-800 to-zinc-800  shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]"
-    class=""
+    contentClass="bg-gradient-to-bl rounded-xl flex flex-col from-slate-700 via-gray-800 to-zinc-800  shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]"
     :closable="false"
     :closeOnEscape="true"
     :showHeader="false"
   >
-    <div
-      class="bg-gradient-to-bl my-8 w- py-8 px-6 rounded-xl flex flex-col mx-auto from-slate-700 via-gray-800 to-zinc-800 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]"
-    >
-      <div class="flex flex-col p-fluid text-left text-gray-200 gap-4">
-        <placeholder class="pl-2"> Session name </placeholder>
+    <div class="p-fluid grid formgrid">
+      <div class="field col-12 md:col-12 my-2 text-left text-gray-200 gap-4">
+        <label>Session name</label>
         <InputText
           type="text"
-          placeholder="SkyTower + Plener"
           v-model="session.session_name"
+          placeholder="Session name"
         />
-
-        <div class="">
-          <placeholder class="pl-2"> Session date </placeholder>
-          <Calendar
-            inputId="date1"
-            dateFormat="dd.mm.yy"
-            v-model="session.session_date"
-          />
-        </div>
-        <div class="flex gap-2">
-          <div class="w-1/2">
-            <span class="p-float-label">
-              <placeholder class="pl-2"> Start Time </placeholder>
-              <Calendar
-                :stepMinute="15"
-                :showSeconds="false"
-                :timeOnly="true"
-                inputId="time"
-                :showTime="true"
-                v-model="session.start_time"
-              />
-            </span>
-          </div>
-
-          <div class="w-1/2">
-            <span class="p-float-label">
-              <placeholder class="pl-2"> Duration </placeholder>
-              <InputNumber
-                inputId="duration_h"
-                v-model="session.duration_h"
-                mode="decimal"
-                showButtons
-                min="1"
-                max="8"
-                minFractionDigits="0"
-                maxFractionDigits="0"
-                step="1"
-              />
-            </span>
-          </div>
-        </div>
-        <div class="flex gap-2">
-          <div class="w-1/2">
-            <span class="p-float-label">
-              <placeholder class="pl-2"> Price per seat </placeholder>
-              <InputNumber
-                inputId="price"
-                v-model="session.price"
-                mode="currency"
-                currency="PLN"
-                locale="pl-PL"
-              />
-            </span>
-          </div>
-
-          <div class="w-1/2">
-            <span class="p-float-label">
-              <placeholder class="pl-2"> Slots </placeholder>
-              <InputNumber
-                inputId="slots"
-                v-model="session.slots"
-                mode="decimal"
-                showButtons
-                :min="1"
-                :max="2"
-              />
-            </span>
-          </div>
-        </div>
-
-        <div>
-          <span>
-            <Textarea
-              id="place_of_meeting"
-              placeholder="sesja odbedzie się przy wejściu do SkyTower od ulicy Gwiaździstej"
-              v-model="session.meeting_place"
-              rows="3"
-            />
-          </span>
-        </div>
       </div>
 
-      <div class="flex my-2 pt-2 gap-2 justify-center">
+      <div class="field col-12 md:col-6">
+        <label>Session date</label>
+        <Calendar
+          inputId="date1"
+          dateFormat="dd.mm.yy"
+          v-model="session.session_date"
+        />
+      </div>
+
+      <div class="field col-12 md:col-6">
+        <label>Start time</label>
+        <Calendar
+          :stepMinute="15"
+          :showSeconds="false"
+          :timeOnly="true"
+          inputId="time"
+          :showTime="true"
+          v-model="session.start_time"
+        />
+      </div>
+
+      <div class="field col-12 md:col-4">
+        <label> Duration </label>
+        <InputNumber
+          inputId="duration_h"
+          v-model="session.duration_h"
+          mode="decimal"
+          showButtons
+          min="1"
+          max="8"
+          minFractionDigits="0"
+          maxFractionDigits="0"
+          step="1"
+        />
+      </div>
+
+      <div class="field col-12 md:col-4">
+        <label> Slots </label>
+        <InputNumber
+          inputId="slots"
+          v-model="session.slots"
+          mode="decimal"
+          showButtons
+          :min="1"
+          :max="2"
+        />
+      </div>
+
+      <div class="field col-12 md:col-4">
+        <label> Price per seat </label>
+        <InputNumber
+          inputId="price"
+          v-model="session.price"
+          mode="currency"
+          currency="PLN"
+          locale="pl-PL"
+        />
+      </div>
+
+      <div class="col-12 md:col-12">
+        <label>Meeting place:</label>
+        <Textarea
+          id="place_of_meeting"
+          placeholder="sesja odbedzie się przy wejściu do SkyTower od ulicy Gwiaździstej"
+          v-model="session.meeting_place"
+          rows="3"
+        />
+      </div>
+
+      <div class="col-12 md:col-6 my-2 pt-2 gap-2 justify-center">
         <Button
-          class="p-button-danger p-button-raised w-1/2 !font-medium !text-gray-200"
+          class="p-button-danger p-button-raised !font-medium !text-gray-200"
           label="Cancel"
           @click="cancelEditSession"
         />
+      </div>
+
+      <div class="col-12 md:col-6 my-2 pt-2 gap-2 justify-center">
         <Button
-          class="p-button-success p-button-raised w-1/2 !font-medium !text-gray-200"
+          class="p-button-success p-button-raised !font-medium !text-gray-200"
           label="Save"
           @click="saveSession"
         />
