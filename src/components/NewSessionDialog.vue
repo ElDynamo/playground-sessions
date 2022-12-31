@@ -1,7 +1,7 @@
 <template>
   <Dialog
     :visible="isDialogVisible"
-    :style="{ width: '50vw' }"
+    :style="{ width: '28rem' }"
     :modal="true"
     contentClass=""
     :closable="false"
@@ -9,7 +9,7 @@
     :showHeader="false"
   >
     <div
-      class="p-fluid grid formgrid bg-gradient-to-bl rounded-xl from-slate-700 via-gray-800 to-zinc-800 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]"
+      class="p-4 p-fluid grid formgrid bg-gradient-to-bl from-slate-700 via-gray-800 to-zinc-800 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]"
     >
       <div class="field col-12 md:col-12 my-2 text-left text-gray-300 gap-4">
         <label class="text-white">Session name</label>
@@ -42,7 +42,7 @@
       </div>
 
       <div class="field col-12 md:col-4">
-        <label> Duration </label>
+        <label> Duration [h]</label>
         <InputNumber
           inputId="duration_h"
           v-model="session.duration_h"
@@ -82,8 +82,8 @@
       <div class="col-12 md:col-12">
         <label>Meeting place:</label>
         <Textarea
-          id="place_of_meeting"
-          placeholder="sesja odbedzie się przy wejściu do SkyTower od ulicy Gwiaździstej"
+          id="meeting_place"
+          placeholder="Meeting place"
           v-model="session.meeting_place"
           rows="3"
         />
@@ -121,23 +121,6 @@
 				Cancel
 			</button>
 		</div> -->
-
-  <!-- <Calendar
-			id="session_date"
-			v-model="session.session_date"
-			dateFormat="dd.mm.yy"
-			required="true"
-			autofocus
-			hourFormat="24"
-			:showButtonBar="true"
-			:hideOnDateTimeSelect="true"
-			:manualInput="false"
-			:minDate="minSessionDateValue"
-			:showIcon="true"
-			:stepMinute="15"
-			:showSeconds="false"
-			:showTime="true"
-			:class="{ 'p-invalid': submitted && !session.session_date }" /> -->
 </template>
 
 <script lang="ts" setup>
