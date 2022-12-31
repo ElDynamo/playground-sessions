@@ -3,14 +3,16 @@
     :visible="isDialogVisible"
     :style="{ width: '50vw' }"
     :modal="true"
-    contentClass="bg-gradient-to-bl rounded-xl flex flex-col from-slate-700 via-gray-800 to-zinc-800  shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]"
+    contentClass=""
     :closable="false"
     :closeOnEscape="true"
     :showHeader="false"
   >
-    <div class="p-fluid grid formgrid">
-      <div class="field col-12 md:col-12 my-2 text-left text-gray-200 gap-4">
-        <label>Session name</label>
+    <div
+      class="p-fluid grid formgrid bg-gradient-to-bl rounded-xl from-slate-700 via-gray-800 to-zinc-800 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]"
+    >
+      <div class="field col-12 md:col-12 my-2 text-left text-gray-300 gap-4">
+        <label class="text-white">Session name</label>
         <InputText
           type="text"
           v-model="session.session_name"
@@ -173,3 +175,15 @@ export function editSession() {
   isDialogVisible.value = true;
 }
 </script>
+
+<style>
+div .p-dialog {
+  pointer-events: auto;
+  max-height: 90%;
+  transform: scale(1);
+}
+
+.p-dialog .p-dialog-content {
+  padding: 0 0.5rem 0rem 0.5rem;
+}
+</style>
