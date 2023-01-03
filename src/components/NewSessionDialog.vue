@@ -12,19 +12,20 @@
 	var duration = ref(1);
 	var startTime = ref(new Date());
 	var slots = ref(1);
+	var name = ref();
 	var price = ref(999);
 	let sessionName = ref(null);
 </script>
 
 <template>
 	<div
-		class="bg-gradient-to-bl rounded-xl flex flex-col mx-auto from-slate-700 via-gray-800 to-zinc-800 my-8 w- py-8 px-6 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
+		class="bg-gradient-to-bl rounded-xl flex flex-col mx-auto from-slate-700 via-gray-800 to-zinc-800 my-8 w- py-8 px-6 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] w-[28rem]">
 		<div class="flex flex-col p-fluid text-left text-gray-200 gap-4">
 			<placeholder class="pl-2"> Session name </placeholder>
 			<InputText
 				type="text"
 				placeholder="SkyTower + Plener"
-				v-model="value1" />
+				v-model="name" />
 
 			<div class="">
 				<placeholder class="pl-2"> Session date </placeholder>
@@ -47,7 +48,7 @@
 					</span>
 				</div>
 
-				<div class="w-1/2">
+				<div class="w-1/4">
 					<span class="p-float-label">
 						<placeholder class="pl-2"> Duration </placeholder>
 						<InputNumber
@@ -73,7 +74,7 @@
 					</span>
 				</div>
 
-				<div class="w-1/2">
+				<div class="w-1/4">
 					<span class="p-float-label">
 						<placeholder class="pl-2"> Slots </placeholder>
 						<InputNumber
