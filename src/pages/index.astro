@@ -1,10 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NewSessionDialog from "../components/NewSessionDialog.vue";
+import Dashboard from "../components/Dashboard.vue";
+import Login from "../components/Login.vue";
+import RecentPhotoshoots from "../components/RecentPhotoshoots.vue";
+import "primeicons/primeicons.css";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="mx-auto text-black text-center">
-    <NewSessionDialog client:only />
-  </main>
+	<main class="flex flex-col mx-auto text-black text-center max-w-6xl gap-6">
+		<NewSessionDialog client:only />
+		<Dashboard client:only />
+		<!-- <Login client:only /> -->
+	</main>
 </Layout>
